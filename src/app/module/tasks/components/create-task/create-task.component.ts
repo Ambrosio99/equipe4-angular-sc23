@@ -25,4 +25,8 @@ export class CreateTaskComponent {
     this.taskService.add(task);
     this.router.navigate(["/task-list"]);
   }
+
+  cancelTaks() {
+    this.router.navigate(["/task-list"]);
+  }
 }
