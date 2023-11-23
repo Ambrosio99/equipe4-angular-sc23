@@ -1,0 +1,33 @@
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit(taskForm.value)">
+    <div>
+        <label for="title">Título</label>
+        <input type="text" id="title" formControlName = "title">
+    </div>
+    <div>
+        <label for="dateLimit">Data limite:</label>
+        <input type="date" id="dateLimit" formControlName="limitDate">
+    </div>
+    <div>
+        <label for="category">Categoria</label>
+        <input type="text" id="category" formControlName = "category">
+    </div>
+    <div>
+        <label for="colors">Cor da tarefa:</label>
+        <select id="colors" name="colors" formControlName = "color">
+            <option value="verde">Verde</option>
+            <option value="vermelho">Vermelho</option>
+            <option value="azul">Azul</option>
+            <option value="roxo">Roxo</option>
+            <option value="amarelo">Amarelo</option>
+        </select>
+    </div>
+    <div>
+        <label for="description">Descrição:</label>
+        <input type="text" formControlName = "description">
+    </div>
+
+    <div>
+        <button>Cancelar</button>
+        <button [disabled]="!taskForm.valid">Salvar</button>
+    </div>
+</form>
