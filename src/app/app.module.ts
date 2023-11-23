@@ -4,7 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './core/auth/components/login/login.component';
+
 import { TasksModule } from './module/tasks/tasks.module';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -16,7 +20,10 @@ import { TasksModule } from './module/tasks/tasks.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TasksModule
+    TasksModule,
+    FormsModule,
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
