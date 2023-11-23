@@ -1,0 +1,41 @@
+<header>
+  <span>20 de Novembro</span>
+  <div class="intro-header">
+    <div>
+      <h3>Olá Lucas</h3>
+      <p>Você tem 5 tarefas para hoje</p>
+    </div>
+    <div class="logout">
+      <p>Logout</p>
+      <i class="bi bi-box-arrow-right"></i>
+    </div>
+  </div>
+</header>
+
+<main>
+  <h1>Suas tarefas:</h1>
+  <ul class="task-list">
+    <li *ngFor="let task of taskList" (click)="selectTask(task)" [class.selected]="task === selectedTask">
+      <div [ngClass]="'task border-' + task.color">
+        <div class="name-data">
+          <h2>{{task.title}}</h2>
+          <span>{{task.limitDate}}</span>
+        </div>
+        <span>{{task.category}}</span>
+        <p>{{task.description}}</p>
+        <input type="checkbox" id="complete-check">
+      </div>
+    </li>
+  </ul>
+</main>
+
+<footer>
+  <nav>
+    <i class="bi bi-house-door-fill"></i>
+    <i class="bi bi-gear-fill"></i>
+    <i class="bi bi-plus-circle-fill" style="font-size: 1.75rem; color: #386cd0;"></i>
+    <i class="bi bi-plus-circle-fill add-task" (click)="navigateToAddTask()"></i>
+    <i class="bi bi-pencil-square"></i>
+    <i class="bi bi-trash" *ngIf="selectedTask"></i>
+  </nav>
+</footer>
