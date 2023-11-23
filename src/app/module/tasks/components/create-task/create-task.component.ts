@@ -1,6 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { TaskModel } from "../../models/task.model";
 import { TaskService } from "../../services/task.service";
 
@@ -11,7 +11,10 @@ import { TaskService } from "../../services/task.service";
 })
 export class CreateTaskComponent {
   taskForm: FormGroup;
-  constructor(private router: Router, private taskService: TaskService) {
+  title: string = '';
+
+  constructor(private router: Router, private taskService: TaskService,
+  private route: ActivatedRoute) {
     this.taskForm = new FormGroup({
       title: new FormControl("", [Validators.required]),
       limitDate: new FormControl("", [Validators.required]),
@@ -22,7 +25,7 @@ export class CreateTaskComponent {
   }
 
   onSubmit(task: TaskModel) {
-    this.taskService.add(task);
+      this.taskService.add(task);
     this.router.navigate(["/task-list"]);
   }
 

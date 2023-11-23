@@ -1,7 +1,6 @@
 export interface TaskModel {
     title: string;
-    limitDate: Date;
-    createDate: Date;
+    limitDate?: Date;
     category: string;
     done: boolean;
     description: string;
