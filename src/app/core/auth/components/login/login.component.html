@@ -1,21 +1,25 @@
-<div class="container d-flex h-100 justify-content-center align-items-center">
-    <form class="container login-form" [formGroup]="loginForm">
+<div class="container d-flex h-100 justify-content-center align-items-center ">
+    <form class="container, form" [formGroup]="loginForm">
+        <div class="heading">Sign In</div>
         <div class="form-group">
-            <label for="email">Email:
-            </label>
-            <input type="text" class="form-control" id="email" formControlName="email"  placeholder="exemplo@email.com" required>
-            <div *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
-                
+            <label for="email"></label>
+            <input type="text" class="form-control input" id="email" formControlName="email" placeholder="E-mail" required>
+            <div *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)" class="invalid-feedback">
+                Insira um email válido.
             </div>
         </div>
         <div class="form-group">
-            <label for="password">Senha:
-            </label>
-            <input type="password" class="form-control" id="password" formControlName="password" placeholder="" required>
-            <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
-            
+            <label for="password"></label>
+            <input type="password" class="form-control input " id="password" formControlName="password" placeholder="Password" required>
+            <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)" class="invalid-feedback">
+                A senha é obrigatória.
             </div>
+            <span class="forgot-password"><a href="#">Forgot Password ?</a></span>
         </div>
-        <button type="submit" class="btn btn-primary" (click)="login()" [disabled]="!loginForm.valid">Entrar</button>
+        <button type="submit" class="login-button" (click)="login()" [disabled]="!loginForm.valid">Sign In</button>
+        <div class="social-account-container">
+            <span class="title">Or Sign in with</span>
+        </div>
+        <span class="agreement"><a href="#">Learn user licence agreement</a></span>      
     </form>
 </div>
