@@ -7,6 +7,7 @@ import { AppComponent } from "./app.component";
 import { LoginComponent } from "./core/auth/components/login/login.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { TasksModule } from "./module/tasks/tasks.module";
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -16,6 +17,7 @@ import { HttpClientModule } from "@angular/common/http";
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    TasksModule
   ],
   providers: [],
   bootstrap: [AppComponent],
