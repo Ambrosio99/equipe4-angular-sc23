@@ -11,7 +11,6 @@ import { DatePipe } from "@angular/common";
   styleUrls: ["./task-list.component.css"],
 })
 export class TaskListComponent implements OnInit {
-  isChecked: boolean = false;
   dateNow: any;
   public taskList: TaskModel[] = [];
   public selectedTask: TaskModel = { title: " ", category: "", done: false, description: "", color: "" };
@@ -46,5 +45,7 @@ export class TaskListComponent implements OnInit {
 
   deleteTask() {
     this.taskService.delete(this.selectedTask.title);
+    this.taskNumber = this.taskService.tasks.length;
+    this.taskService.indexTask = -1;
   }
 }

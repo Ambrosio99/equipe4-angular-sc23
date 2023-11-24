@@ -24,8 +24,8 @@
         <span>{{task.category}}</span>
         <p>{{task.description}}</p>
         <div class="div-complete">
-          <span *ngIf="isChecked">Feito!</span>
-          <input type="checkbox" id="complete-check" [(ngModel)]="isChecked">
+          <span *ngIf="task.done">Feito!</span>
+          <input type="checkbox" id="complete-check" [(ngModel)]="task.done">
         </div>
       </div>
     </li>
