@@ -1,8 +1,7 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 @import "./task-reset.css";
 * {
-  font-family: Roboto, "Helvetica Neue", sans-serif, Arial, Helvetica,
-    sans-serif;
+  font-family: Roboto, "Helvetica Neue", sans-serif, Arial, Helvetica, sans-serif;
 }
 
 header {
@@ -150,14 +149,22 @@ footer {
     position: absolute;
     top: -40px;
     color: #386cd0;
-    background: radial-gradient(
-      circle,
-      rgba(255, 255, 255, 1) 50%,
-      rgba(9, 9, 121, 0) 50%
-    );
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 50%, rgba(9, 9, 121, 0) 50%);
     &::before {
       border-radius: 50%;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
     }
+  }
+}
+
+.div-complete {
+  display: flex;
+  gap: 10px;
+  place-self: end;
+
+  & span {
+    color: rgb(0 117 255) !important;
+    place-self: center !important;
+    font-size: 0.95rem !important;
   }
 }

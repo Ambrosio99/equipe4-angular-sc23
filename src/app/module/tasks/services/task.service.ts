@@ -6,6 +6,7 @@ import { TaskModel } from "../models/task.model";
 })
 export class TaskService {
   tasks: TaskModel[] = [];
+  public indexTask: number = -1;
 
   getTasks() {
     return this.tasks;
@@ -36,5 +37,13 @@ export class TaskService {
     if (i > -1) {
       this.tasks.splice(i, 1);
     }
+  }
+
+  getTask(index: number) {
+    return this.tasks[index];
+  }
+
+  att(editedTask: TaskModel, index: number) {
+    this.tasks[index] = editedTask;
   }
 }

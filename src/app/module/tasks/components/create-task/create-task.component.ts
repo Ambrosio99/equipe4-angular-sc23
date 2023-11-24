@@ -11,10 +11,9 @@ import { TaskService } from "../../services/task.service";
 })
 export class CreateTaskComponent {
   taskForm: FormGroup;
-  title: string = '';
+  title: string = "";
 
-  constructor(private router: Router, private taskService: TaskService,
-  private route: ActivatedRoute) {
+  constructor(private router: Router, private taskService: TaskService, private route: ActivatedRoute) {
     this.taskForm = new FormGroup({
       title: new FormControl("", [Validators.required]),
       limitDate: new FormControl("", [Validators.required]),
@@ -25,7 +24,7 @@ export class CreateTaskComponent {
   }
 
   onSubmit(task: TaskModel) {
-      this.taskService.add(task);
+    this.taskService.add(task);
     this.router.navigate(["/task-list"]);
   }
 

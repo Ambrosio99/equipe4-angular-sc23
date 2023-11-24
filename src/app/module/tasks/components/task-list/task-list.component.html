@@ -1,9 +1,9 @@
 <header>
-  <span>20 de Novembro</span>
+  <span>{{dateNow}}</span>
   <div class="intro-header">
     <div>
-      <h3>Olá Lucas</h3>
-      <p>Você tem 5 tarefas para hoje</p>
+      <h3>Olá Coder</h3>
+      <p>Você tem {{taskNumber}} {{ taskNumber == 1 ? 'tarefa' : 'tarefas' }}</p>
     </div>
     <div class="logout">
       <p>Logout</p>
@@ -15,15 +15,18 @@
 <main>
   <h1>Suas tarefas:</h1>
   <ul class="task-list">
-    <li *ngFor="let task of taskList" (click)="selectTask(task)" [class.selected]="task === selectedTask">
+    <li *ngFor="let task of taskList; let i = index" (click)="selectTask(task, i)" [class.selected]="task === selectedTask">
       <div [ngClass]="'task border-' + task.color">
         <div class="name-data">
           <h2>{{task.title}}</h2>
-          <span>{{task.limitDate}}</span>
+          <span>{{task.limitDate | date:'dd/MM/yyyy'}}</span>
         </div>
         <span>{{task.category}}</span>
         <p>{{task.description}}</p>
-        <input type="checkbox" id="complete-check">
+        <div class="div-complete">
+          <span *ngIf="isChecked">Feito!</span>
+          <input type="checkbox" id="complete-check" [(ngModel)]="isChecked">
+        </div>
       </div>
     </li>
   </ul>
@@ -31,7 +34,7 @@
 
 <footer>
   <nav>
-    <i class="bi bi-pencil-square"></i>
+    <i class="bi bi-pencil-square" (click)="editTask()"></i>
     <i class="bi bi-plus-circle-fill" style="font-size: 1.75rem; color: #386cd0; margin: 0 18px;"></i>
     <i class="bi bi-plus-circle-fill add-task" (click)="navigateToAddTask()"></i>
     <i class="bi bi-trash" (click)="deleteTask()"></i>
