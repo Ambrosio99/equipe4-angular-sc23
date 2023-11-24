@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class EditTaskComponent implements OnInit {
   editForm: FormGroup;
-  public index: number = 0;
+  public index: number = this.taskService.indexTask;
   public editedTask: TaskModel = { title: " ", category: "", done: false, description: "", color: "" };
 
   constructor(private taskService: TaskService, private router: Router, private route: ActivatedRoute) {
