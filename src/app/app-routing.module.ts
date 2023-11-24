@@ -7,7 +7,13 @@ import { CreateTaskComponent } from "./module/tasks/components/create-task/creat
 import { EditTaskComponent } from "./module/tasks/components/edit-task/edit-task.component";
 
 const routes: Routes = [
-  { path: "login", component: LoginComponent },
+  { path: "login", 
+  component: LoginComponent },
+
+  { path: '', 
+  redirectTo: 'login', 
+  pathMatch: 'full'},
+  
   {
     path: "task-list",
     component: TaskListComponent,
