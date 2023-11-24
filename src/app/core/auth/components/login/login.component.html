@@ -16,7 +16,7 @@
             </div>
             <span class="forgot-password"><a href="#">Forgot Password ?</a></span>
         </div>
-        <button type="submit" class="login-button" (click)="login()" [disabled]="!loginForm.valid">Sign In</button>
+        <button type="submit" class="login-button"  (click)="login()" [disabled]="!loginForm.valid" routerLink="/task-list">Sign In</button>
         <div class="social-account-container">
             <span class="title">Or Sign in with</span>
         </div>
