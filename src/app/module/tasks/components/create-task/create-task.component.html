@@ -1,0 +1,47 @@
+<header>
+    <h1>Criando Tarefa</h1>
+</header>
+
+<main>
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit(taskForm.value)">
+        <div>
+            <label for="title">Título:</label>
+            <input type="text" id="title" class="form-control" formControlName="title">
+        </div>
+        <div>
+            <label for="dateLimit">Data limite:</label>
+            <input type="date" id="dateLimit" class="form-control" formControlName="limitDate">
+        </div>
+        <div>
+            <label for="category">Categoria:</label>
+            <input type="text" id="category" class="form-control" formControlName="category">
+        </div>
+        <div>
+            <label for="colors" class="flex-colors">Cor da tarefa:
+                <ul>
+                    <li style="background-color: #1cd65b;"></li>
+                    <li style="background-color: #e13434;"></li>
+                    <li style="background-color: #3479e1;"></li>
+                    <li style="background-color: #996cf9;"></li>
+                    <li style="background-color: #f4dd0c;"></li>
+                </ul>
+            </label>
+            <select id="colors" name="colors" formControlName="color" class="form-control">
+                <option value="verde">Verde</option>
+                <option value="vermelho">Vermelho</option>
+                <option value="azul">Azul</option>
+                <option value="roxo">Roxo</option>
+                <option value="amarelo">Amarelo</option>
+            </select>
+        </div>
+        <div>
+            <label for="description">Descrição:</label>
+            <input type="text" class="form-control" formControlName="description">
+        </div>
+
+        <div>
+            <button class="btn-form cancel-bg" (click)="cancelTaks()">Cancelar</button>
+            <button [disabled]="!taskForm.valid" class="btn-form save-bg">Adicionar</button>
+        </div>
+    </form>
+</main>
